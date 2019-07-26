@@ -17,8 +17,8 @@ EXTRACTION_DPI = 300
 # 2. Find tables and text inside page. Script: find_table.py
 # inference graphs
 inference_graph_momentum = \
-    os.path.join(os.path.join(
-        '/home/iaito/git/TableTrainNet/trained_models/model__rcnn_inception_adam_1/frozen/frozen_inference_graph_momentum.pb'))
+    os.path.join(
+        '/home/iaito/git/TableTrainNet/trained_models/model__rcnn_inception_adam_1/frozen/frozen_inference_graph_momentum.pb')
 
 inference_graph_adam_3 = \
     os.path.join('/home/iaito/git/TableTrainNet/trained_models/'
