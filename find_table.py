@@ -54,14 +54,14 @@ def do_inference_with_graph(pil_image, inference_graph_path):
         raise InputError('Inference graph at\n{}\nnot found'.format(inference_graph_path))
 
     with detection_graph.as_default():
-        od_graph_def = tf.GraphDef()
-        with tf.gfile.GFile(inference_graph_path, 'rb') as fid:
+        od_graph_def = tf.compat.v1.GraphDef()
+        with tf.io.gfile.GFile(inference_graph_path, 'rb') as fid:
             serialized_graph = fid.read()
             od_graph_def.ParseFromString(serialized_graph)
             tf.import_graph_def(od_graph_def, name='')
 
     with detection_graph.as_default():
-        with tf.Session(graph=detection_graph) as sess:
+        with tf.compat.v1.Session(graph=detection_graph) as sess:
             # the array based representation of the image will be used later in order to prepare the
             # result image with boxes and labels on it.
             image_np = reshape_image_into_numpy_array(pil_image)
