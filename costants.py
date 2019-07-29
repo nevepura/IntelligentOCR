@@ -5,7 +5,12 @@ THREADS = 8
 # 1. Read pdf and extract images from it
 
 # TEST_PDF_PATH = os.path.join('C:/Users/giova/Documents/PycharmProjects/Polizze/glossario.pdf')
-TEST_PDF_PATH = os.path.join('pdf/assembly10.pdf')
+
+#TEST_PDF_PATH = os.path.join('pdf/polizze/alupress_cropped.pdf')
+#TEST_PDF_PATH = os.path.join('pdf/polizze/unipol_rischi_industriali.pdf')
+TEST_PDF_PATH = os.path.join('pdf/polizze/unipol_all_risks_property_cropped10.pdf')
+#TEST_PDF_PATH = os.path.join('pdf/polizze/piovan_property4.pdf')
+
 # store here temporary images made by splitting the pdf in singular image files
 TEMP_IMG_FOLDER_FROM_PDF = 'pdf_temp'
 
