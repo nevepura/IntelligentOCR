@@ -24,8 +24,8 @@ inference_graph_adam_3 = \
     os.path.join('/home/iaito/git/TableTrainNet/trained_models/'
                  'model__rcnn_inception_adam_3/frozen/frozen_inference_graph.pb')
 
-path_to_graph = '/home/iaito/git/TableTrainNet/trained_models/adam0_tb/frozen20k/frozen_inference_graph.pb'
-                 
+path_to_graph = 'inference_graphs/frozen_inference_graph_adam0_tb.pb'
+
 INFERENCE_GRAPH = path_to_graph
 
 # table.py uses these constants:
