@@ -5,7 +5,7 @@ THREADS = 8
 # 1. Read pdf and extract images from it
 
 # TEST_PDF_PATH = os.path.join('C:/Users/giova/Documents/PycharmProjects/Polizze/glossario.pdf')
-TEST_PDF_PATH = os.path.join('pdf/assembly.pdf')
+TEST_PDF_PATH = os.path.join('pdf/assembly10.pdf')
 # store here temporary images made by splitting the pdf in singular image files
 TEMP_IMG_FOLDER_FROM_PDF = 'pdf_temp'
 
@@ -24,7 +24,7 @@ inference_graph_adam_3 = \
     os.path.join('/home/iaito/git/TableTrainNet/trained_models/'
                  'model__rcnn_inception_adam_3/frozen/frozen_inference_graph.pb')
 
-path_to_graph = 'inference_graphs/frozen_inference_graph_adam0_tb.pb'
+path_to_graph = 'inference_graphs/frozen_adam2_tb/frozen_inference_graph.pb'
 
 INFERENCE_GRAPH = path_to_graph
 
