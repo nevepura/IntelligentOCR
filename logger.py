@@ -1,6 +1,5 @@
 import logging
 import datetime
-import random
 
 
 class Singleton(type):
@@ -16,7 +15,7 @@ class TimeHandler(metaclass=Singleton):
     def __init__(self):
         self.now = datetime.datetime.now()
         self.file_name = \
-            "pipeline_{}-{}-{}_{}-{}-{}.log".format(\
+            "./logs/pipeline_{}-{}-{}_{}-{}-{}.log".format(\
                 self.now.year,\
                 self.now.month,\
                 self.now.day,\

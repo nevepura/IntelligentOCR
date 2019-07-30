@@ -20,9 +20,7 @@ EXTRACTION_DPI = 300
 # 2. Find tables and text inside page. Script: find_table.py
 # inference graphs
 
-path_to_graph = 'inference_graphs/frozen_adam2_tb/frozen_inference_graph.pb'
-
-INFERENCE_GRAPH = path_to_graph
+INFERENCE_GRAPH = 'inference_graphs/frozen_adam2_tb/frozen_inference_graph.pb'
 
 # table.py uses these constants:
 MAX_NUM_BOXES = 10
@@ -35,10 +33,3 @@ TEST_TABLE_PATH = os.path.join('extracted_images/sample1')
 
 # 4. Extract text from text images
 TEXT_FOLDER = 'text'
-
-
-# alupress_polizza_completa =
-# os.path.join('C:/Users/giova/Documents/PycharmProjects/Polizze/polizza Alupress/ALUPRESS POLIZZA COMPLETA rev. MM 2018.pdf')
-# agbra_polizza_incendio = os.path.join('C:/Users/giova/Documents/PycharmProjects/Polizze/Polizza AGBA/AGBA pol INCENDIO.pdf')
-
-# constants used by 'find_table.py'
