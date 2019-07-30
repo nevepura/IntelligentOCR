@@ -85,13 +85,13 @@ def pipeline(pdf_path, inference_graph_path, thread_name=None):
                 temp_text_path=TEXT_FOLDER,
                 page_number=page_number
             )
-            text_name = 'text'
-            if page_number == 0:
-                if os.path.isfile(os.path.join(TEXT_FOLDER, pdf_name, text_name + '.txt')):
-                    os.remove(os.path.join(TEXT_FOLDER, pdf_name, text_name + '.txt'))
+            text_string = 'text'
+            text_file_path = os.path.join(TEXT_FOLDER, pdf_name, text_string + '.txt')
+            if page_number == 0 and os.path.isfile(text_file_path):
+                os.remove(text_file_path)
             do_ocr_to_text(
                 pil_image=c_text,
-                file_name=text_name,
+                file_name=text_string,
                 output_folder=os.path.join(TEXT_FOLDER, pdf_name)
             )
             page_number += 1

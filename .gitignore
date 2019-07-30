@@ -5,6 +5,8 @@ table/
 text/
 temp/
 __pycache__/
-*.log
+logs/*.log
 pdf/polizze
 extracted_images/
+tmp/input/
+tmp/output/
