@@ -4,12 +4,10 @@ THREADS = 8
 
 # 1. Read pdf and extract images from it
 
-# TEST_PDF_PATH = os.path.join('C:/Users/giova/Documents/PycharmProjects/Polizze/glossario.pdf')
-
 #TEST_PDF_PATH = os.path.join('pdf/polizze/alupress_cropped.pdf')
 #TEST_PDF_PATH = os.path.join('pdf/polizze/unipol_rischi_industriali.pdf')
-TEST_PDF_PATH = os.path.join('pdf/polizze/unipol_all_risks_property_cropped10.pdf')
-#TEST_PDF_PATH = os.path.join('pdf/polizze/piovan_property4.pdf')
+#TEST_PDF_PATH = os.path.join('pdf/polizze/unipol_all_risks_property_cropped10.pdf')
+TEST_PDF_PATH = os.path.join('pdf/polizze/piovan_property4.pdf')
 
 # store here temporary images made by splitting the pdf in singular image files
 TEMP_IMG_FOLDER_FROM_PDF = 'pdf_temp'
@@ -21,13 +19,6 @@ EXTRACTION_DPI = 300
 
 # 2. Find tables and text inside page. Script: find_table.py
 # inference graphs
-inference_graph_momentum = \
-    os.path.join(
-        '/home/iaito/git/TableTrainNet/trained_models/model__rcnn_inception_adam_1/frozen/frozen_inference_graph_momentum.pb')
-
-inference_graph_adam_3 = \
-    os.path.join('/home/iaito/git/TableTrainNet/trained_models/'
-                 'model__rcnn_inception_adam_3/frozen/frozen_inference_graph.pb')
 
 path_to_graph = 'inference_graphs/frozen_adam2_tb/frozen_inference_graph.pb'
 
@@ -35,12 +26,11 @@ INFERENCE_GRAPH = path_to_graph
 
 # table.py uses these constants:
 MAX_NUM_BOXES = 10
-MIN_SCORE = 0.4
+MIN_SCORE = 0.7
 
 
 # 3. Extract tables from table images
 TABLE_FOLDER = 'table'
-#TEST_TABLE_PATH = os.path.join('table/glossario/table_pag_0_0.jpeg')
 TEST_TABLE_PATH = os.path.join('extracted_images/sample1')
 
 # 4. Extract text from text images

@@ -414,6 +414,7 @@ def write_crops(file_name, cropped_tables=None, cropped_text=None, temp_table_pa
     :param cropped_text: list of pillow images
     :param temp_table_path:
     :param temp_text_path:
+    :param page_number
     :return: None
     """
     i = 0
@@ -461,21 +462,3 @@ def write_crops(file_name, cropped_tables=None, cropped_text=None, temp_table_pa
         text_path = new_file_path
     return table_paths, text_path
 
-# def find_table(file_name, pil_image, create_temp_files=False, temp_table_path=TABLE_FOLDER, temp_text_path=TEXT_FOLDER):
-#     """
-#     useful only for batch. The function extract_tables_and_text does everything
-#     :param file_name:
-#     :param pil_image:
-#     :param create_temp_files:
-#     :param temp_table_path:
-#     :param temp_text_path:
-#     :return:
-#     """
-#     cropped_tables, cropped_text = extract_tables_and_text(pil_image=pil_image, inference_graph_path=PATH_TO_CKPT)
-#     if create_temp_files:
-#         create_temp_folders(file_name=file_name)
-#         write_crops(
-#             file_name=file_name,
-#             cropped_tables=cropped_tables,
-#             cropped_text=cropped_text
-#         )
