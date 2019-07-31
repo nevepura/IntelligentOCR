@@ -42,6 +42,8 @@ def pipeline(pdf_path, inference_graph_path, thread_name=None):
     page_number = 0
     # create temp folders
     create_temp_folders(pdf_name)
+
+
     for pil_image in bw_pil_gen:
         c_tables, c_text = extract_tables_and_text(
             pil_image=pil_image,
@@ -63,7 +65,7 @@ def pipeline(pdf_path, inference_graph_path, thread_name=None):
             )
             for table_path in table_paths:
                 do_tesseract_on_tables(table_path, TABLE_FOLDER)
-            # counter_table = 0
+
             table_name = 'table_pag_{pag_num}'.format(pag_num=page_number)
             if page_number == 0:
                 if os.path.isfile(os.path.join(TABLE_FOLDER, pdf_name, table_name + '.txt')):
