@@ -2,7 +2,7 @@ from extract_pages_from_pdf import generate_pil_images_from_pdf
 from find_table import extract_tables_and_text, write_crops, create_temp_folders
 from tesseract_tabula_on_tables import do_tesseract_on_tables
 from tesseract_on_text import do_ocr_to_text
-from personal_errors import InputError  # OutputError
+from personal_errors import InputError  #, OutputError
 from costants import \
     INFERENCE_GRAPH, \
     TEST_PDF_PATH, \
@@ -37,21 +37,16 @@ def pipeline(pdf_path, inference_graph_path, thread_name=None):
         temp_path = TEMP_IMG_FOLDER_FROM_PDF,
         thread_name = thread_name
     )
-    # cropped_text = []
-    # cropped_tables = []
+
     page_number = 0
     # create temp folders
     create_temp_folders(pdf_name)
-
 
     for pil_image in bw_pil_gen:
         c_tables, c_text = extract_tables_and_text(
             pil_image=pil_image,
             inference_graph_path=inference_graph_path
         )
-        # yield (c_tables, c_text)
-        # cropped_tables.extend(c_tables)
-        # cropped_text.append(c_text)
         logger.info('Extraction of tables and text completed')
 
         if not c_tables == []:
@@ -68,8 +63,9 @@ def pipeline(pdf_path, inference_graph_path, thread_name=None):
 
             table_name = 'table_pag_{pag_num}'.format(pag_num=page_number)
             if page_number == 0:
-                if os.path.isfile(os.path.join(TABLE_FOLDER, pdf_name, table_name + '.txt')):
-                    os.remove(os.path.join(TABLE_FOLDER, pdf_name, table_name + '.txt'))
+                table_file_path = os.path.join(TABLE_FOLDER, pdf_name, table_name + '.txt')
+                if os.path.isfile(table_file_path):
+                    os.remove(table_file_path)
             for c_t in c_tables:
                 do_ocr_to_text(
                     pil_image=c_t,
@@ -79,7 +75,7 @@ def pipeline(pdf_path, inference_graph_path, thread_name=None):
         logger.info('Writing tables on disk completed')
 
         if c_text is not None:
-            table_paths, text_path = write_crops(
+            _, _ = write_crops(
                 file_name=pdf_name,
                 cropped_tables=None,
                 cropped_text=c_text,
